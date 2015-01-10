@@ -1,0 +1,90 @@
+html {
+    font: 12pt helvetica;
+    letter-spacing: -.015em;
+    line-height: 3em;
+}
+
+body {
+    margin-left: .5em;
+    margin-top: 4em;
+    padding: 0;
+}
+h1 {
+    font: 8em helvetica;
+    letter-spacing: -.075em;
+    line-height: .16em;
+}
+h2 {
+    font: 6em helvetica;
+    color: gray;
+    letter-spacing: -.06em;
+    line-height: .1em;
+}
+p {
+    font: 4em helvetica;
+    line-height: .15em;
+}
+p.fine {
+    font: 3em helvetica;
+    line-height: .1em;
+}
+hr {
+    border: 0;
+    height: 1px;
+    background: -moz-linear-gradient(left center, transparent, black, transparent);
+    background: -webkit-gradient(linear, left center, right center,
+    color-stop(0, transparent),
+    color-stop(0.5, black),
+    color-stop(1, transparent));
+}
+
+.share button {
+    font: 3em helvetica;
+    border: .1em solid rgb(128,128,128);
+    border-radius: 2em;
+    height: 2.6em;
+}
+
+.share img {
+    vertical-align: middle;
+    margin-right: 2em;
+}
+
+div.share {
+    margin-left: 4em;
+    margin-bottom: 3em;
+}
+
+div#messages {
+    margin-top: 3em;
+    margin-left: 2em;
+}
+div.messagebrief {
+    font: 3em helvetica;
+    margin-top: 1em;
+}
+span.head {
+    font-weight:800;
+    color: #888888;
+}
+span.type {
+    font-size: 0.6em;
+    font-weight: 800;
+    color: lightgray;
+    margin-left: 0.6em;
+}
+span.body {
+    font-size: 1em;
+    font-weight: 100;
+    color: gray;
+}
+span.more {
+    font-size: 0.6em;
+    font-weight: 800;
+    color: gray;
+    margin-left: 0.6em;
+}
+div.message {
+    font: 3em helvetica;
+    margin-top: 1em;
+}

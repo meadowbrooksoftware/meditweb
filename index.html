@@ -1,0 +1,35 @@
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Meditation Story</title>
+    <link rel="stylesheet" href="./css/medit.css" type="text/css"/>
+    <link rel="icon" href="img/icon.gif" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+    <div class="share">
+        <img class="share" src="./img/medit-md.png"/>
+        <button class="share">Share your meditation story</button>
+    </div>
+    <hr/>
+    <div id="messages"></div>
+</body>
+<script>
+    var maxbody = 30
+    $( document ).ready(function() {
+        $.getJSON('messages.js', function(json) {
+            $.each(json,function(i, value){
+                $message = $('<div class="messagebrief"></div>').appendTo("#messages")
+                $message.append('<span class="head">' + value.head + '</span>')
+                        .append('<span class="type">' + (typeof value.type != 'undefined' ? value.type.toUpperCase() : '') + '</span>')
+                        .append('<br/>')
+                        .append('<span class="body">' + value.body.substring(0,maxbody) + ' ...</span>')
+                        .append('<span class="more"><a href="message.html?" + value.id>more</a></span>')
+                $("#messages").append('<br />');
+                $("#messages").append('<hr />');
+            });
+        });
+    })
+</script>
+</html>
