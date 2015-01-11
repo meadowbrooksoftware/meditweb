@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Meditation Story</title>
+    <link rel="icon" href="img/icon.gif" />
+    <link rel="stylesheet" href="./css/medit.css" type="text/css"/>
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+</head>
+<body>
+<div id="readContent"></div>
+<hr/>
+<div class="controlPanel">
+    <a class="link" style="margin-left:4em" onclick="parent.location='./index.html'">Return to the list</a>
+</div>
+</body>
+<script>
+    var maxbody = 30
+    $( document ).ready(function() {
+        var id = getparam('id');
+        $.getJSON('/svc/medit/' + id, function(value) {
+            $message = $('<div class="message"></div>').appendTo("#readContent")
+            $message.append('<div class="type"><p>' + value.type + '</p></div>')
+            $message.append('<div class="head"><p>' + value.head + '</p></div>')
+            $message.append('<hr/>')
+            $message.append('<div class="body"><p>' + value.body + '</p></div>')
+        });
+    })
+
+    function getparam(name) {
+        var params = window.location.search.substring(1).split('&');
+        for(var i = 0; i < params.length; i++) {
+            var thisparam = params[i].split('=');
+            if(thisparam[0] == name) {
+                return thisparam[1];
+            }
+        }
+    }
+</script>
+</html>

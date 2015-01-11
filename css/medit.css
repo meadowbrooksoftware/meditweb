@@ -1,90 +1,130 @@
 html {
     font: 12pt helvetica;
-    letter-spacing: -.015em;
-    line-height: 3em;
-}
-
-body {
-    margin-left: .5em;
-    margin-top: 4em;
-    padding: 0;
+    line-height: 1em;
+    letter-spacing: -.1em;
 }
 h1 {
     font: 8em helvetica;
     letter-spacing: -.075em;
-    line-height: .16em;
+    line-height: 4em;
 }
 h2 {
     font: 6em helvetica;
     color: gray;
     letter-spacing: -.06em;
-    line-height: .1em;
+    line-height: 3em;
 }
 p {
-    font: 4em helvetica;
-    line-height: .15em;
+    font: 1em helvetica;
+    line-height: 1em;
 }
 p.fine {
-    font: 3em helvetica;
-    line-height: .1em;
+    font: 0.6em helvetica;
+    line-height: 1em;
+}
+.link {
+    font-size: 0.6em;
+    font-weight: 800;
+    color: gray;
+    margin-left: 0.6em;
 }
 hr {
-    border: 0;
-    height: 1px;
-    background: -moz-linear-gradient(left center, transparent, black, transparent);
-    background: -webkit-gradient(linear, left center, right center,
-    color-stop(0, transparent),
-    color-stop(0.5, black),
-    color-stop(1, transparent));
+    color #c9c9c9;
 }
-
-.share button {
+#storyForm {
+    margin-top: 2em;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+#readContent {
+    margin-top: 3em;
+    margin-left: 2em;
+    margin-right: 2em;
+    font-size: 2em;
+}
+.controlPanel {
+    font-size: 3em;
+}
+select {
+    width: 16em;
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+.inputArea {
+    font: 3em helvetica;
+    padding: .5em;
+    margin-bottom: 1em;
+}
+.inputField {
+    font: 3em helvetica;
+    padding: .5em;
+    margin-bottom: 1em;
+}
+.control {
     font: 3em helvetica;
     border: .1em solid rgb(128,128,128);
     border-radius: 2em;
     height: 2.6em;
-}
-
-.share img {
     vertical-align: middle;
-    margin-right: 2em;
+    background: #ffffff;
 }
-
 div.share {
-    margin-left: 4em;
-    margin-bottom: 3em;
-}
-
-div#messages {
     margin-top: 3em;
     margin-left: 2em;
+    margin-bottom: 2em;
+}
+img.share {
+    margin-top: .6em;
+    vertical-align: middle;
+    margin-right: 1em;
+}
+button.share {
+    font: 3em helvetica;
+    border: .1em solid rgb(128,128,128);
+    border-radius: 2em;
+    width: 15em;
+    height: 2.4em;
+    vertical-align: middle;
+    background: #ffffff;
+}
+div#messages {
+    margin-left: 2em;
+    margin-right: 2em;
 }
 div.messagebrief {
     font: 3em helvetica;
-    margin-top: 1em;
+    margin-top: 0.5em;
 }
-span.head {
+span.headbrief {
     font-weight:800;
     color: #888888;
 }
-span.type {
+span.typebrief {
     font-size: 0.6em;
     font-weight: 800;
     color: lightgray;
     margin-left: 0.6em;
 }
-span.body {
+span.bodybrief {
     font-size: 1em;
     font-weight: 100;
     color: gray;
 }
-span.more {
-    font-size: 0.6em;
-    font-weight: 800;
-    color: gray;
-    margin-left: 0.6em;
-}
-div.message {
+div.messagebrief {
     font: 3em helvetica;
     margin-top: 1em;
+}
+div.head {
+    font: 2em helvetica;
+    font-weight:800;
+    color: #888888;
+}
+div.body {
+    font: 1.5em helvetica;
+    margin-top: 1em;
+}
+div.type {
+    font-size: 1.5em;
+    font-weight: 800;
+    color: lightgray;
 }

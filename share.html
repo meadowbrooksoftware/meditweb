@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Meditation Story</title>
+    <link rel="icon" href="img/icon.gif" />
+    <link rel="stylesheet" href="./css/medit.css" type="text/css"/>
+    <link rel="stylesheet"  href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" />
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+</head>
+<body>
+<div>
+    <form id="storyForm">
+        <div id="content">
+            <select name="type" id="typeSelector">
+                <option class="inputField" value="Kundalini">Kundalini</option>
+                <option class="inputField" value="Pranhayana">Pranhayana</option>
+                <option class="inputField" value="Herbal">Herbal</option>
+            </select>
+        </div>
+        <textarea class="inputField" cols="28" rows="1" name="head" id="headTextArea"></textarea>
+        <textarea class="inputArea" cols="28" rows="16" name="body" id="bodyTextArea"></textarea>
+    </form>
+    <hr/>
+    <div class="controlpanel">
+        <span><button class="control" style="width:6em;margin-right:2em;" onClick="parent.location='./index.html'">Clear</button></span>
+        <span><button class="control" style="width:10em" onClick="tellStory()">Tell story</button></span>
+    </div>
+</div>
+</body>
+<script>
+    function tellStory() {
+        var formData = $("#storyForm").serializeArray();
+        var data = toPost(formData)
+        post(data)
+    }
+    function toPost(form) {
+        var data = {}
+        $.each(form, function(d) {
+            data[form[d].name] = form[d].value
+        })
+        return data
+    }
+    function post(data) {
+        $.ajax({
+            type: "POST",
+            url: '/svc/medit',
+            data: JSON.stringify(data),
+            success: function(data) {
+                parent.location="/index.html"
+            },
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+        });
+    }
+</script>
+</html>

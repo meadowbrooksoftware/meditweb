@@ -2,31 +2,33 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Meditation Story</title>
-    <link rel="stylesheet" href="./css/medit.css" type="text/css"/>
     <link rel="icon" href="img/icon.gif" />
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="./css/medit.css" type="text/css"/>
+    <link rel="stylesheet"  href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" />
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 </head>
 <body>
+<div>
     <div class="share">
         <img class="share" src="./img/medit-md.png"/>
-        <button class="share">Share your meditation story</button>
+        <button class="share" onclick="parent.location='./share.html'">Share your meditation story</button>
     </div>
     <hr/>
     <div id="messages"></div>
+</div>
 </body>
 <script>
-    var maxbody = 30
-    $( document ).ready(function() {
-        $.getJSON('messages.js', function(json) {
-            $.each(json,function(i, value){
+    var maxhead = 31
+    var maxbody = 35
+    $(document).ready(function() {
+        $.getJSON('/svc/medits?beginat=1&endat=9420916326&detail=true', function(json) {
+            $.each(json.reverse(), function(i, value){
                 $message = $('<div class="messagebrief"></div>').appendTo("#messages")
-                $message.append('<span class="head">' + value.head + '</span>')
-                        .append('<span class="type">' + (typeof value.type != 'undefined' ? value.type.toUpperCase() : '') + '</span>')
+                $message.append('<span class="headbrief">' + value.head.substring(0, maxhead) + '</span>')
+                        .append('<span class="typebrief">' + (typeof value.type != 'undefined' ? value.type.toUpperCase() : '') + '</span>')
                         .append('<br/>')
-                        .append('<span class="body">' + value.body.substring(0,maxbody) + ' ...</span>')
-                        .append('<span class="more"><a href="message.html?" + value.id>more</a></span>')
-                $("#messages").append('<br />');
+                        .append('<span class="bodybrief">' + value.body.substring(0, maxbody) + '...</span>')
+                        .append('<span class="link"><a href="./read.html?id=' + value.id + '" target="_self">more</a></span>')
                 $("#messages").append('<hr />');
             });
         });
