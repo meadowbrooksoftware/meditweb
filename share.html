@@ -3,27 +3,35 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Meditation Story</title>
-    <link rel="icon" href="img/icon.gif" />
+    <link rel="icon" href="img/icon.gif"/>
     <link rel="stylesheet" href="./css/medit.css" type="text/css"/>
-    <link rel="stylesheet"  href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css"/>
     <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 </head>
 <body>
 <div>
     <form id="storyForm">
         <div id="content">
-            <select name="type" id="typeSelector">
+            <select name="type" id="typeselector">
+                <option class="inputField" value="">Type of Meditation (optional)</option>
                 <option class="inputField" value="Kundalini">Kundalini</option>
                 <option class="inputField" value="Pranhayana">Pranhayana</option>
-                <option class="inputField" value="Herbal">Herbal</option>
+                <option class="inputField" value="Transcendental">Transcendental</option>
+                <option class="inputField" value="Zen">Zen</option>
             </select>
         </div>
-        <textarea class="inputField" cols="28" rows="1" name="head" id="headTextArea"></textarea>
-        <textarea class="inputArea" cols="28" rows="16" name="body" id="bodyTextArea"></textarea>
+        <div>
+            <textarea class="inputField" cols="28" rows="1" name="head" title="Story Title (optional)" id="headTextArea"></textarea>
+        </div>
+        <div>
+            <textarea class="inputArea" cols="28" rows="16" name="body" title="My story goes here ..." id="bodyTextArea"></textarea>
+        </div>
     </form>
     <hr/>
     <div class="controlpanel">
-        <span><button class="control" style="width:6em;margin-right:2em;" onClick="parent.location='./index.html'">Clear</button></span>
+        <span><button class="control" style="width:6em;margin-right:2em;" onClick="parent.location='./index.html'">
+            Clear
+        </button></span>
         <span><button class="control" style="width:10em" onClick="tellStory()">Tell story</button></span>
     </div>
 </div>
@@ -53,5 +61,29 @@
             contentType: "application/json; charset=utf-8",
         });
     }
+    $(document).ready(function(){
+        $('input[type=text][title],input[type=password][title],textarea[title]').each(function(i){
+            $(this).addClass('inputprompt-' + i);
+            var promptSpan = $('<span class="inputprompt"/>');
+            $(promptSpan).attr('id', 'inputprompt-' + i);
+            $(promptSpan).append($(this).attr('title'));
+            $(promptSpan).click(function(){
+                $(this).hide();
+                $('.' + $(this).attr('id')).focus();
+            });
+            if($(this).val() != ''){
+                $(promptSpan).hide();
+            }
+            $(this).before(promptSpan);
+            $(this).focus(function(){
+                $('#inputprompt-' + i).hide();
+            });
+            $(this).blur(function(){
+                if($(this).val() == '') {$('#inputprompt-' + i).show();}
+            });
+        });
+    });
+
+
 </script>
 </html>

@@ -26,7 +26,16 @@ p.fine {
     font-size: 0.6em;
     font-weight: 800;
     color: gray;
+    active: black;
     margin-left: 0.6em;
+}
+.returnlink {
+    font-size: 1em;
+    font-weight: 800;
+    color: gray;
+    active: black;
+    line-height: 1em;
+    margin-left: 1.5em;
 }
 hr {
     color #c9c9c9;
@@ -98,6 +107,7 @@ div.messagebrief {
 span.headbrief {
     font-weight:800;
     color: #888888;
+    overflow: hidden;
 }
 span.typebrief {
     font-size: 0.6em;
@@ -109,6 +119,8 @@ span.bodybrief {
     font-size: 1em;
     font-weight: 100;
     color: gray;
+    overflow: hidden;
+    text-overflow: ellipses;
 }
 div.messagebrief {
     font: 3em helvetica;
@@ -127,4 +139,21 @@ div.type {
     font-size: 1.5em;
     font-weight: 800;
     color: lightgray;
+}
+.typeselector select {
+    border: 0 !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-position: 4em .5em;
+    width: 14em;
+    text-indent: 1em;
+    text-overflow: "";
+}
+.inputprompt {
+    position: absolute;
+    font-size: 3em;
+    font-style: italic;
+    font-weight: 200;
+    color: #aaa;
+    margin: 1em 0 0 1em;
 }

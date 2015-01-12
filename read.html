@@ -9,9 +9,8 @@
 </head>
 <body>
 <div id="readContent"></div>
-<hr/>
 <div class="controlPanel">
-    <a class="link" style="margin-left:4em" onclick="parent.location='./index.html'">Return to the list</a>
+    <a class="returnlink" onclick="parent.location='./index.html'">Return to the list</a>
 </div>
 </body>
 <script>
@@ -24,6 +23,7 @@
             $message.append('<div class="head"><p>' + value.head + '</p></div>')
             $message.append('<hr/>')
             $message.append('<div class="body"><p>' + value.body + '</p></div>')
+            $message.append('<hr/>')
         });
     })
 

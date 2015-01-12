@@ -10,25 +10,25 @@
 <body>
 <div>
     <div class="share">
-        <img class="share" src="./img/medit-md.png"/>
-        <button class="share" onclick="parent.location='./share.html'">Share your meditation story</button>
+        <img class="share" onclick="parent.location='./share.html'" onmouseover="" style="cursor: pointer;" src="./img/medit-md.png"/>
+        <button class="share" onclick="parent.location='./share.html'"  onmouseover="" style="cursor: pointer;">Share your meditation story</button>
     </div>
     <hr/>
     <div id="messages"></div>
 </div>
 </body>
 <script>
-    var maxhead = 31
-    var maxbody = 35
+    var maxhead = 30
+    var maxbody = 75
     $(document).ready(function() {
-        $.getJSON('/svc/medits?beginat=1&endat=9420916326&detail=true', function(json) {
+        $.getJSON('/svc/medits?beginat=1&endat=9420916326&detail=true&max=20&maxlen=75', function(json) {
             $.each(json.reverse(), function(i, value){
                 $message = $('<div class="messagebrief"></div>').appendTo("#messages")
                 $message.append('<span class="headbrief">' + value.head.substring(0, maxhead) + '</span>')
                         .append('<span class="typebrief">' + (typeof value.type != 'undefined' ? value.type.toUpperCase() : '') + '</span>')
                         .append('<br/>')
-                        .append('<span class="bodybrief">' + value.body.substring(0, maxbody) + '...</span>')
-                        .append('<span class="link"><a href="./read.html?id=' + value.id + '" target="_self">more</a></span>')
+                        .append('<span class="bodybrief">' + value.body.substring(0, maxbody) + (value.body.length >= maxhead ? '...' : '') + '</span>')
+                        .append('<span class="link">' + (value.body.length >= maxhead ? '<a href="./read.html?id=' + value.id + '" target="_self">more</a>' : '') + '</span>')
                 $("#messages").append('<hr />');
             });
         });
