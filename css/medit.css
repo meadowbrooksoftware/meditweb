@@ -22,18 +22,32 @@ p.fine {
     font: 0.6em helvetica;
     line-height: 1em;
 }
+a:link, a:visited {
+	color: #000;
+	text-decoration: none;
+	text-shadow: none;
+	cursor:pointer;
+}
+a:hover {
+	color: #666;
+	text-shadow: none;
+	text-decoration: none;
+	cursor:pointer;
+}
+a:active {
+	color: #000;
+	text-decoration: none;
+	text-shadow: none;
+	cursor:pointer;
+}
 .link {
     font-size: 0.6em;
     font-weight: 800;
-    color: gray;
-    active: black;
     margin-left: 0.6em;
 }
 .returnlink {
     font-size: 1em;
     font-weight: 800;
-    color: gray;
-    active: black;
     line-height: 1em;
     margin-left: 1.5em;
 }
@@ -50,6 +64,7 @@ hr {
     margin-left: 2em;
     margin-right: 2em;
     font-size: 2em;
+	color: grey;
 }
 .controlPanel {
     font-size: 3em;
