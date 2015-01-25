@@ -22,7 +22,7 @@
             $message.append('<div class="type"><p>' + value.type + '</p></div>')
             $message.append('<div class="head"><p>' + value.head + '</p></div>')
             $message.append('<hr/>')
-            $message.append('<div class="body"><p>' + value.body + '</p></div>')
+            $message.append('<div class="body"><p>' + asHtml(value.body) + '</p></div>')
             $message.append('<hr/>')
         });
     })
@@ -35,6 +35,16 @@
                 return thisparam[1];
             }
         }
+    }
+
+    /**
+     * Take text data with newlines and other non-html friendly characters and format it for viewing.
+     * @param text Text data directly form the API
+     * @return html that better represents the writer's intent
+     */
+    function asHtml(text) {
+        // replace newlines with linebreaks
+        return text.replace(/\n/g, "<br />")
     }
 </script>
 </html>
