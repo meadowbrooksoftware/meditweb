@@ -12,9 +12,9 @@
 <div>
     <div class="share">
         <img class="share" onclick="parent.location='./share.html'" onmouseover="" style="cursor: pointer;" src="./img/medit-md.png"/>
-        <button class="share" onclick="parent.location='./share.html'"  onmouseover="" style="cursor: pointer;">Share what you've learned</button>
+        <button class="share" onclick="parent.location='./share.html'"  onmouseover="" style="cursor: pointer;">Share WHAT you've learned</button>
     </div>
-    <hr/>
+    <hr class="hardrule"/>
     <div id="messages"></div>
 </div>
 </body>
@@ -30,9 +30,9 @@
                         .append('<br/>')
                         .append('<span class="bodybrief">' + value.body.substring(0, maxbody) + (value.body.length >= maxhead ? '...' : '') + '</span>')
                         .append('<span class="link">' + (value.body.length >= maxhead ? '<a href="./read.html?id=' + value.id + '" target="_self">more</a>' : '') + '</span>')
-                $("#messages").append('<hr />');
+                $("#messages").append('<hr class="hardrule"/>');
             });
         });
     })
 </script>
-</html>
+</html>  
