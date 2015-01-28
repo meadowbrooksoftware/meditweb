@@ -28,6 +28,17 @@ a:link, a:visited {
 	text-shadow: none;
 	cursor:pointer;
 }
+
+.hardrule {
+	background: #e3e3e3;
+	height:1px;
+	border: 0;
+	background-image: -webkit-linear-gradient(left, #e3e3e3, #333, #e3e3e3); 
+    background-image:    -moz-linear-gradient(left, #e3e3e3, #333, #e3e3e3); 
+    background-image:     -ms-linear-gradient(left, #e3e3e3, #333, #e3e3e3); 
+    background-image:      -o-linear-gradient(left, #e3e3e3, #333, #e3e3e3); 
+	
+}
 a:hover {
 	color: #666;
 	text-shadow: none;
